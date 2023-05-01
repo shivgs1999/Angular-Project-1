@@ -1,0 +1,42 @@
+<div class="container offset-4 mt-5">
+  <div class="card" style="width: 22rem">
+    <h3 class="d-flex justify-content-center text-primary">
+      Password Generator
+    </h3>
+  </div>
+
+  <div class="card px-3 py-3" style="width: 22rem">
+    <div class="card px-1 py-1">
+      <span>Enter Password Length:</span> &nbsp;&nbsp;&nbsp;
+      <input (input)="numberLength($event.target.value)" type="number" />
+    </div>
+    <div>
+      <input (change)="onChangeUseLetters()" type="checkbox" name="useLetters" id="useLettersId" />
+      &nbsp;
+      <label for="useLetters">Use Letters</label>
+    </div>
+    <div>
+      <input (change)="onChangeUseNumbers()" type="checkbox" name="useNumber" id="useNumber" />
+      &nbsp;
+      <label for="useNumber">Use Number</label>
+    </div>
+    <div>
+      <input (change)="onChangeUseSymbols()" type="checkbox" name="useSymbols" id="useSymbolsId" />
+      &nbsp;
+      <label for="useSymbols">use Symbols</label>
+    </div>
+    <br />
+    <div>
+      <button [disabled]="
+          !((inputLength && includesLetter) || includesNumer || includesSymbol)
+        " class="btn btn-success btn-sm" type="submit" (click)="generatePassword()">
+        Generate
+      </button>
+    </div>
+    <br />
+    <div class="card px-1 py-1">
+      <h5 class="d-flex justify-content-center text-success">Your Password</h5>
+      <input [value]="password" readonly type="text" name="yourpassword" id="yourpasswordId" />
+    </div>
+  </div>
+</div>
