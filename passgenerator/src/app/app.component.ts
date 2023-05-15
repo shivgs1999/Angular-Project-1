@@ -12,6 +12,14 @@ export class AppComponent {
   includesSymbol = false;
   inputLength = 0;
 
+  numberLength(value: string) {
+    let parsedValue = parseInt(value);
+    if (!isNaN(parsedValue)) {
+      this.inputLength = parsedValue;
+      console.log(this.inputLength);
+    }
+  }
+
   onChangeUseLetters() {
     this.includesLetter = !this.includesLetter;
     console.log('includesLetter:', this.includesLetter);
@@ -24,19 +32,12 @@ export class AppComponent {
     this.includesSymbol = !this.includesSymbol;
     console.log('includesSymbol', this.includesSymbol);
   }
-  numberLength(value: string) {
-    let parsedValue = parseInt(value);
-    if (!isNaN(parsedValue)) {
-      this.inputLength = parsedValue;
-      console.log(this.inputLength);
-    }
-  }
+  
 
   generatePassword() {
     const letter = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const number = '1234567890';
     const symbol = '!@#$%^&*()';
-    let generatedPassword = '';
     let validChars = '';
     if (this.includesLetter) {
       validChars += letter;
@@ -47,6 +48,8 @@ export class AppComponent {
     if (this.includesSymbol) {
       validChars += symbol;
     }
+    
+    let generatedPassword = '';
     for (let i = 0; i < this.inputLength; i++) {
       const index = Math.floor(Math.random() * validChars.length);
       generatedPassword += validChars[index];

@@ -11,7 +11,7 @@
       <input (input)="numberLength($event.target.value)" type="number" />
     </div>
     <div>
-      <input (change)="onChangeUseLetters()" type="checkbox" name="useLetters" id="useLettersId" />
+      <input (change)="onChangeUseLetters()" type="checkbox" name="useLetters" id="useLetters" />
       &nbsp;
       <label for="useLetters">Use Letters</label>
     </div>
@@ -21,15 +21,15 @@
       <label for="useNumber">Use Number</label>
     </div>
     <div>
-      <input (change)="onChangeUseSymbols()" type="checkbox" name="useSymbols" id="useSymbolsId" />
+      <input (change)="onChangeUseSymbols()" type="checkbox" name="useSymbols" id="useSymbols" />
       &nbsp;
       <label for="useSymbols">use Symbols</label>
     </div>
     <br />
     <div>
       <button [disabled]="
-          !((inputLength && includesLetter) || includesNumer || includesSymbol)
-        " class="btn btn-success btn-sm" type="submit" (click)="generatePassword()">
+              !((inputLength && includesLetter) || includesNumer || includesSymbol)
+            " class="btn btn-success btn-sm" type="submit" (click)="generatePassword()">
         Generate
       </button>
     </div>
